@@ -14,5 +14,5 @@ df = pd.read_csv("YouTubeEULA.csv")
 
 # Reference
 
-check the report at https://github.com/Rahul-Chaudhry/EULA-Summarizer/blob/main/REPORT.docx
+Check the report at https://github.com/Rahul-Chaudhry/EULA-Summarizer/blob/main/REPORT.docx
 
