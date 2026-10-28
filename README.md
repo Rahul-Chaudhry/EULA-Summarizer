@@ -35,14 +35,14 @@ The summary is saved as a text file in `outputs/`.
 ## Command-line workflow
 
 ```bash
-python Code/summarizer.py data/ApacheEULA.csv --output outputs/apache_summary.txt
+python src/summarizer.py data/ApacheEULA.csv --output outputs/apache_summary.txt
 ```
 
 The CSV must contain a `Description` column. For a different column, pass its
 name with `--column`. Plain-text inputs work too:
 
 ```bash
-python Code/summarizer.py data/terms.txt --sentences 8
+python src/summarizer.py data/terms.txt --sentences 8
 ```
 
 ## Project layout
@@ -51,7 +51,7 @@ python Code/summarizer.py data/terms.txt --sentences 8
 data/          # Sample and user-provided EULA source files
 outputs/       # Generated summaries (ignored by Git)
 notebooks/     # Beginner-friendly Jupyter workflow
-Code/          # Reusable command-line summarizer
+src/           # Reusable command-line summarizer
 tests/         # Automated tests
 requirements.txt
 ```

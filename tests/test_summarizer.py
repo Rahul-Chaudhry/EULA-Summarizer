@@ -1,6 +1,6 @@
 import unittest
 
-from Code.summarizer import read_document, summarize_file, summarize_text
+from src.summarizer import read_document, summarize_file, summarize_text
 
 
 class SummarizerTests(unittest.TestCase):
