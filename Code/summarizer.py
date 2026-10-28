@@ -72,8 +72,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("Summarized-Files/summary.txt"),
-        help="Where to save the summary (default: Summarized-Files/summary.txt)",
+        default=Path("outputs/summary.txt"),
+        help="Where to save the summary (default: outputs/summary.txt)",
     )
     parser.add_argument(
         "--sentences",

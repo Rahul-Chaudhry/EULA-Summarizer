@@ -13,10 +13,10 @@ class SummarizerTests(unittest.TestCase):
         self.assertTrue(all(sentence in text for sentence in summary))
 
     def test_reads_included_csv(self) -> None:
-        document = read_document("Data-Files/ApacheEULA.csv")
+        document = read_document("data/ApacheEULA.csv")
 
         self.assertIn("License", document)
-        self.assertEqual(len(summarize_file("Data-Files/ApacheEULA.csv", 3)), 3)
+        self.assertEqual(len(summarize_file("data/ApacheEULA.csv", 3)), 3)
 
 
 if __name__ == "__main__":

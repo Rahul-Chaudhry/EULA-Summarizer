@@ -1,8 +1,7 @@
 # EULA Summarizer
 
 Create a short, extractive summary of an end-user licence agreement (EULA).
-The tool ranks sentences using TF-IDF, cosine similarity, and PageRank, then
-writes the most representative sentences to a text file.
+The project ranks sentences using TF-IDF, cosine similarity, and PageRank.
 
 > This project helps with reading long agreements; it is not legal advice.
 
@@ -15,55 +14,46 @@ python -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
-python Code/summarizer.py Data-Files/ApacheEULA.csv --output Summarized-Files/apache_summary.txt
+jupyter lab
 ```
 
-On Windows PowerShell, activate the virtual environment with:
+On Windows PowerShell, activate the environment with:
 
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-The command prints the saved location. Open the generated `.txt` file in
-`Summarized-Files` to read the result.
+## Notebook workflow
 
-## Use your own EULA
+1. Put a `.csv` or `.txt` agreement in `data/`.
+2. Open `notebooks/summarize_eula.ipynb`.
+3. Change `INPUT_FILE` and `SENTENCE_COUNT` if needed.
+4. Select **Run All Cells**.
 
-The summarizer accepts either:
+The summary is saved as a text file in `outputs/`.
 
-- A `.csv` file with a `Description` column containing the agreement text.
-- A plain `.txt` file.
-
-Examples:
+## Command-line workflow
 
 ```bash
-python Code/summarizer.py path/to/terms.txt --sentences 8
-python Code/summarizer.py path/to/terms.csv --column "Agreement text" --sentences 10
+python Code/summarizer.py data/ApacheEULA.csv --output outputs/apache_summary.txt
 ```
 
-`--output` changes where the summary is written. `--sentences` controls its
-length; the default is 12 sentences.
+The CSV must contain a `Description` column. For a different column, pass its
+name with `--column`. Plain-text inputs work too:
 
-## How it works
-
-1. Read the EULA text and split it into sentences.
-2. Convert sentences to TF-IDF vectors.
-3. Measure cosine similarity between every pair of sentences.
-4. Use PageRank to identify the most central sentences.
-5. Keep the top-ranked sentences in their original document order.
-
-Unlike the original script, this version does not download a multi-gigabyte
-GloVe file or require a separate NLTK download before it can run.
+```bash
+python Code/summarizer.py data/terms.txt --sentences 8
+```
 
 ## Project layout
 
 ```text
-Code/
-  summarizer.py       # Command-line summarizer
-Data-Files/           # Example Apache and YouTube EULA CSV files
-Summarized-Files/     # Generated summaries (ignored by Git)
-tests/                # Small regression tests
-requirements.txt      # Required Python libraries
+data/          # Sample and user-provided EULA source files
+outputs/       # Generated summaries (ignored by Git)
+notebooks/     # Beginner-friendly Jupyter workflow
+Code/          # Reusable command-line summarizer
+tests/         # Automated tests
+requirements.txt
 ```
 
 ## Test

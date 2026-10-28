@@ -3,5 +3,5 @@
 __pycache__/
 .pytest_cache/
 *.pyc
-Summarized-Files/*.txt
-!Summarized-Files/.gitkeep
+outputs/*.txt
+!outputs/.gitkeep
