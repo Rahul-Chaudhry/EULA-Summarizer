@@ -1,60 +1,44 @@
 # EULA Summarizer
 
-Create a short, extractive summary of an end-user licence agreement (EULA).
-The project ranks sentences using TF-IDF, cosine similarity, and PageRank.
+Create a short extractive summary of an end-user licence agreement (EULA).
+The notebook ranks sentences using TF-IDF, cosine similarity, and PageRank.
 
 > This project helps with reading long agreements; it is not legal advice.
 
-## Quick start
+## Start in JupyterLab
 
-```bash
-git clone https://github.com/Rahul-Chaudhry/EULA-Summarizer.git
-cd EULA-Summarizer
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-jupyter lab
-```
+Clone the repository, create a virtual environment, and install JupyterLab:
+
+    git clone https://github.com/Rahul-Chaudhry/EULA-Summarizer.git
+    cd EULA-Summarizer
+    python3 -m venv .venv
+    source .venv/bin/activate
+    python3 -m pip install jupyterlab
+    jupyter lab
 
 On Windows PowerShell, activate the environment with:
 
-```powershell
-.venv\Scripts\Activate.ps1
-```
+    .venv\Scripts\Activate.ps1
+
+Open notebooks/summarize_eula.ipynb. It begins with a commented,
+one-package-per-line install cell. If a package is missing, remove the
+leading # from its line and run that cell once.
 
 ## Notebook workflow
 
-1. Put a `.csv` or `.txt` agreement in `data/`.
-2. Open `notebooks/summarize_eula.ipynb`.
-3. Change `INPUT_FILE` and `SENTENCE_COUNT` if needed.
-4. Select **Run All Cells**.
+1. Put a .csv or .txt agreement in data.
+2. Change INPUT_FILE, TEXT_COLUMN, and SENTENCE_COUNT in the notebook.
+3. Select Run All Cells.
 
-The summary is saved as a text file in `outputs/`.
-
-## Command-line workflow
-
-```bash
-python src/summarizer.py data/ApacheEULA.csv --output outputs/apache_summary.txt
-```
-
-The CSV must contain a `Description` column. For a different column, pass its
-name with `--column`. Plain-text inputs work too:
-
-```bash
-python src/summarizer.py data/terms.txt --sentences 8
-```
+The summary is saved as a text file in outputs. CSV inputs need a Description
+column by default; change TEXT_COLUMN when your file uses a different name.
 
 ## Project layout
 
-```text
-data/          # Sample and user-provided EULA source files
-outputs/       # Generated summaries (ignored by Git)
-notebooks/     # Beginner-friendly Jupyter workflow
-src/           # Reusable command-line summarizer
-documentation/ # Project report and reference material
-requirements.txt
-```
+    data/          Sample and user-provided EULA source files
+    outputs/       Generated summaries, ignored by Git
+    notebooks/     All executable project workflows
+    documentation/ Project report and reference material
 
 ## Original report
 
