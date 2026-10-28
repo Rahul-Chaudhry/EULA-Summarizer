@@ -52,14 +52,7 @@ data/          # Sample and user-provided EULA source files
 outputs/       # Generated summaries (ignored by Git)
 notebooks/     # Beginner-friendly Jupyter workflow
 src/           # Reusable command-line summarizer
-tests/         # Automated tests
 requirements.txt
-```
-
-## Test
-
-```bash
-python -m unittest discover -s tests
 ```
 
 ## Original report
